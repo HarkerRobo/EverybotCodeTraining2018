@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import frc.robot.subsystems.Intake;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -26,12 +27,16 @@ public class Robot extends IterativeRobot {
   private final Joystick m_stick = new Joystick(0);
   private final Timer m_timer = new Timer();
 
+  public static Intake intake;
+
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
    */
   @Override
   public void robotInit() {
+    intake = Intake.getInstance();
+    intake.talonInit();
   }
 
   /**
